@@ -2,8 +2,8 @@
 
 use Orchestra\Testable\TestCase as T;
 
-class TestCase extends T {
-	
+abstract class TestCase extends T {
+
 	/**
 	 * Create application
 	 *

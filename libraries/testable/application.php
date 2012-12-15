@@ -1,6 +1,7 @@
 <?php namespace Diskus\Testable;
 
-use Orchestra\Testable\Application as A;
+use Orchestra\Extension,
+	Orchestra\Testable\Application as A;
 
 class Application extends A {
 	
