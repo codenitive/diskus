@@ -1,6 +1,6 @@
 <?php namespace Diskus;
 
-use Orchestra as O,
+use Orchestra\Core as O,
 	Orchestra\Acl;
 
 class Core {
