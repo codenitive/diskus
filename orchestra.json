@@ -1,0 +1,11 @@
+{
+	"name"        : "Diskus",
+	"description" : "Diskus is a Discussion Management System Extension built for Orchestra Platform.",
+	"author"      : "Mior Muhammad Zaki",
+	"url"         : "http://bundles.laravel.com/bundle/detail/diskus",
+	"version"     : "0.1.0",
+	"config"      : {
+		"handles" : "diskus"
+	},
+	"require"     : {}
+}
