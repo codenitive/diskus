@@ -1,6 +1,8 @@
 <?php
 
-class RoutingHomeTest extends PHPUnit_Framework_TestCase {
+Bundle::start('orchestra');
+
+class RoutingHomeTest extends Diskus\Testable\TestCase {
 
 	/**
 	 * Test Request GET (diskus)
