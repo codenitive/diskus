@@ -12,7 +12,7 @@ class RoutingHomeTest extends Diskus\Testable\TestCase {
 	 */
 	public function testGetLandingPage()
 	{
-		$response = $this->call('diskus::home@test', array());
+		$response = $this->call('diskus::home@index', array());
 
 		$this->assertInstanceOf('Laravel\Response', $response);
 		$this->assertEquals(200, $response->foundation->getStatusCode());
