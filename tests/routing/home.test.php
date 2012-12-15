@@ -1,6 +1,7 @@
 <?php
 
 Bundle::start('orchestra');
+Bundle::start('diskus');
 
 class RoutingHomeTest extends Diskus\Testable\TestCase {
 
