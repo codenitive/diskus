@@ -19,6 +19,8 @@ class Diskus_Api_Home_Controller extends Controller {
 	 */
 	public function get_index()
 	{
+		View::share('_title_', 'Diskus');
+		
 		return View::make('diskus::api.home');
 	}
 }

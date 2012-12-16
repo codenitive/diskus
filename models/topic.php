@@ -12,6 +12,19 @@ class Topic extends Eloquent {
 	public static $table = 'diskus_topics';
 
 	/**
+	 * Get recent active topics
+	 *
+	 * @static
+	 * @access public
+	 * @return self
+	 */
+	public static function recent_active()
+	{
+		return static::where_in('status', array(static::STATUS_PUBLISH))
+				->order_by('updated_at', 'DESC');
+	}
+
+	/**
 	 * Belongs to relationship with `users` table.
 	 *
 	 * @access public

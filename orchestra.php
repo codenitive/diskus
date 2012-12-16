@@ -6,5 +6,6 @@ Event::listen('orchestra.started: backend', function ()
 		'name' => 'Diskus',
 		'uses' => 'diskus::api.home',
 	));
-	
+
+	$diskus->topics = 'diskus::api.topics';
 });
