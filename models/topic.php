@@ -1,6 +1,7 @@
 <?php namespace Diskus\Model;
 
-use \Eloquent;
+use \Config,
+	\Eloquent;
 
 class Topic extends Eloquent {
 
