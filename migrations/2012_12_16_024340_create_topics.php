@@ -14,11 +14,17 @@ class Diskus_Create_Topics {
 		Schema::create('diskus_topics', function ($table)
 		{
 			$table->increments('id');
+			
 			$table->integer('user_id')->unsigned();
 			$table->string('title')->nullable();
 			$table->text('content')->nullable();
+			$table->text('metadata')->nullable();
 			$table->string('status')->default(Topic::STATUS_PUBLISH);
+
 			$table->timestamps();
+
+			$table->index('user_id');
+			$table->index('status');
 		});
 	}
 
