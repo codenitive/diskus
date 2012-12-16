@@ -17,7 +17,7 @@ class Diskus_Create_Topics {
 			$table->integer('user_id')->unsigned();
 			$table->string('title')->nullable();
 			$table->text('content')->nullable();
-			$table->integer('status')->default(Topic::STATUS_PUBLISH);
+			$table->string('status')->default(Topic::STATUS_PUBLISH);
 			$table->timestamps();
 		});
 	}
