@@ -2,7 +2,7 @@
 
 use Orchestra\View;
 
-class Diskus_Home_Controller extends Controller {
+class Diskus_Api_Home_Controller extends Controller {
 	
 	/**
 	 * Use restful verb.
@@ -12,13 +12,13 @@ class Diskus_Home_Controller extends Controller {
 	public $restful = true;
 
 	/**
-	 * Get landing page.
+	 * GET resources landing page.
 	 *
 	 * @access public
 	 * @return Response
 	 */
 	public function get_index()
 	{
-		return View::make('diskus::home.index');
+		return View::make('diskus::api.home');
 	}
 }
