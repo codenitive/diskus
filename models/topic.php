@@ -5,12 +5,22 @@ use \Config,
 
 class Topic extends Eloquent {
 
+	/**
+	 * Manually define the table.
+	 *
+	 * @var string
+	 */
+	public static $table = 'diskus_topics';
+
+	/**
+	 * define constant.
+	 */
+	const ANSWERED       = 1;
+	const NOT_ANSWERED   = 0;
 	const STATUS_DRAFT   = 'draft'; 
 	const STATUS_PRIVATE = 'private';
 	const STATUS_DELETED = 'deleted';
 	const STATUS_PUBLISH = 'publish';
-
-	public static $table = 'diskus_topics';
 
 	/**
 	 * Get recent active topics
@@ -23,6 +33,19 @@ class Topic extends Eloquent {
 	{
 		return static::where_in('status', array(static::STATUS_PUBLISH))
 				->order_by('updated_at', 'DESC');
+	}
+
+	/**
+	 * Get recent not answered topics
+	 *
+	 * @static
+	 * @access public
+	 * @return self
+	 */
+	public static function recent_not_answered()
+	{
+		return static::recent_active()
+				->where_answer(static::NOT_ANSWERED);
 	}
 
 	/**
