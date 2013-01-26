@@ -12,7 +12,7 @@
 		<div id="cellonav" class="collapse nav-collapse">
 		  	<ul class="nav">
 		  		<li class="{{ URI::is('*/resources/diskus.topics*') ? 'active' : '' }}">
-					{{ HTML::link(handles('orchestra::resources/diskus.topics'), __('diskus::title.topics')) }}
+					{{ HTML::link(handles('orchestra::resources/diskus.topics'), 'Topics') }}
 				</li>
 			</ul>
 

@@ -10,8 +10,9 @@
 */
 
 Autoloader::namespaces(array(
-	'Diskus\Model' => Bundle::path('diskus').'models'.DS, 
-	'Diskus'       => Bundle::path('diskus').'libraries'.DS,
+	'Diskus\Model'     => Bundle::path('diskus').'models'.DS, 
+	'Diskus\Presenter' => Bundle::path('diskus').'presenters'.DS,
+	'Diskus'           => Bundle::path('diskus').'libraries'.DS,
 ));
 
 /*

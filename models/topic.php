@@ -31,7 +31,8 @@ class Topic extends Eloquent {
 	 */
 	public static function recent_active()
 	{
-		return static::where_in('status', array(static::STATUS_PUBLISH))
+		return static::with(array('user'))
+				->where_in('status', array(static::STATUS_PUBLISH))
 				->order_by('updated_at', 'DESC');
 	}
 
@@ -54,7 +55,7 @@ class Topic extends Eloquent {
 	 * @access public
 	 * @return Orchestra\Model\User
 	 */
-	public function users()
+	public function user()
 	{
 		return $this->belongs_to(Config::get('auth.model'));
 	}

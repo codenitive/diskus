@@ -8,4 +8,5 @@ Event::listen('orchestra.started: backend', function ()
 	));
 
 	$diskus->topics = 'diskus::api.topics';
+	$diskus->tags   = 'diskus::api.tags';
 });
