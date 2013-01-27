@@ -62,4 +62,19 @@ class Diskus_Api_Topics_Controller extends Controller {
 
 		return View::make('diskus::api.topics.edit', $data);
 	}
+
+	/**
+	 * Post add/edit a topic
+	 *
+	 * @access public
+	 * @return Response
+	 */
+	public function post_view($id = null)
+	{
+		$input = Input::all();
+		$rules = array(
+			'title'   => array('required'),
+			'content' => array('required'),
+		);
+	}
 }

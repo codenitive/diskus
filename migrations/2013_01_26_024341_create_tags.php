@@ -20,6 +20,8 @@ class Diskus_Create_Tags {
 			$table->string('status')->default(Tag::STATUS_PUBLISH);
 
 			$table->timestamps();
+
+			$table->index('slug');
 		});
 	}
 

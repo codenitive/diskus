@@ -1,7 +1,8 @@
 <?php namespace Diskus\Presenter;
 
-use Orchestra\Form, 
-Orchestra\Table;
+use Diskus\Model\Topic as T,
+	Orchestra\Form, 
+	Orchestra\Table;
 
 class Topic {
 	
@@ -66,8 +67,20 @@ class Topic {
 				
 				$fieldset->control('textarea', 'content', function ($control)
 				{
-					$control->label = 'Content';
-					$control->attr  = array('class' => 'span12 !span4', 'role' => 'redactor');
+					$control->label('Content');
+					$control->attr(array(
+						'class' => 'span12 !span4', 
+						'role' => 'redactor',
+					));
+				});
+
+				$fieldset->control('select', 'status', function ($control)
+				{
+					$control->options(array(
+						T::STATUS_PUBLISH => 'Publish',
+						T::STATUS_PRIVATE => 'Private',
+						T::STATUS_DRAFT   => 'Draft',
+					));
 				});
 			});
 		});

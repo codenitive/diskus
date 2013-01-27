@@ -18,7 +18,7 @@ class Diskus_Create_Comments {
 			$table->integer('topic_id')->unsigned();
 			$table->integer('user_id')->unsigned();
 			$table->text('content')->nullable();
-			$table->text('metadata')->nullable();
+			$table->blob('meta')->nullable();
 			$table->boolean('answer')->default(Comment::IS_ANSWER);
 			$table->string('status')->default(Comment::STATUS_PUBLISH);
 

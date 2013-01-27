@@ -18,7 +18,7 @@ class Diskus_Create_Topics {
 			$table->integer('user_id')->unsigned();
 			$table->string('title')->nullable();
 			$table->text('content')->nullable();
-			$table->text('metadata')->nullable();
+			$table->blob('meta')->nullable();
 			$table->boolean('answer')->default(Topic::NOT_ANSWERED);
 			$table->string('status')->default(Topic::STATUS_PUBLISH);
 
