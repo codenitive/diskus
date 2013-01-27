@@ -13,6 +13,10 @@ class Diskus_Api_Tags_Controller extends Controller {
 
 	public function get_index()
 	{
+		$data = array('table' => '');
+
+		View::share('_title_', __('diskus::title.tags.list'));
 		
+		return View::make('diskus::api.tags.index', $data);
 	}
 }

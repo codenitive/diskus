@@ -14,6 +14,9 @@
 		  		<li class="{{ URI::is('*/resources/diskus.topics*') ? 'active' : '' }}">
 					{{ HTML::link(handles('orchestra::resources/diskus.topics'), 'Topics') }}
 				</li>
+				<li class="{{ URI::is('*/resources/diskus.tags*') ? 'active' : '' }}">
+					{{ HTML::link(handles('orchestra::resources/diskus.tags'), 'Tags') }}
+				</li>
 			</ul>
 
 			<ul class="nav pull-right">
