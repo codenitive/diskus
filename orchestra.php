@@ -1,5 +1,11 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| Diskus Resources
+|--------------------------------------------------------------------------
+*/
+
 Event::listen('orchestra.started: backend', function ()
 {
 	$diskus = Orchestra\Resources::make('diskus', array(
