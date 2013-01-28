@@ -27,7 +27,7 @@ class Topic {
 			$table->with($model, true);
 
 			// Add columns.
-			$table->column(__('orchestra::label.name'), 'name');
+			$table->column(__('diskus::label.name'), 'name');
 
 			$table->column('fullname', function ($column)
 			{

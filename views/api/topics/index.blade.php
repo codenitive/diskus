@@ -3,7 +3,9 @@
 <div class="page-header">
 	
 	<div class="pull-right">
-		<a href="{{ URL::current() }}/view" class="btn btn-primary">Add</a>
+		<a href="{{ URL::current() }}/view" class="btn btn-primary">
+			{{ __('diskus::title.topics.create') }}
+		</a>
 	</div>
 	
 	<h2>{{ isset($_title_) ? $_title_ : 'Diskus' }}
