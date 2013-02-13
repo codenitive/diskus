@@ -22,6 +22,7 @@
 			<directory suffix=".php">controllers</directory>
 			<directory suffix=".php">libraries</directory>
 			<directory suffix=".php">models</directory>
+			<directory suffix=".php">presenters</directory>
 			
 			<exclude>
 				<directory suffix=".php">libraries/testable</directory>
