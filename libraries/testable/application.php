@@ -20,15 +20,15 @@ class Application extends A {
 	}
 
 	/**
-	 * Remove application.
+	 * Shutdown application.
 	 *
 	 * @access public
 	 * @return void
 	 */
-	public function remove()
+	public function shutdown()
 	{
 		Extension::deactivate('diskus');
 
-		parent::remove();
+		parent::shutdown();
 	}
 }
