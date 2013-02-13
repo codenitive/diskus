@@ -12,4 +12,4 @@ before_install:
   - php artisan bundle:install orchestra
   - echo "<?php return array('orchestra' => array('auto' => true, 'handles' => 'orchestra'), 'diskus');" > ./application/bundles.php
 
-script: "phpunit --coverage-text --configuration bundles/authorize/phpunit.xml"
+script: "phpunit --coverage-text --configuration bundles/diskus/phpunit.xml"
