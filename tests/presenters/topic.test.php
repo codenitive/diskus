@@ -21,7 +21,7 @@ class PresentersTopicTest extends Diskus\Testable\TestCase {
 		$grid = $grid->getValue($stub);
 
 		$this->assertInstanceOf('Orchestra\Table', $stub);
-		$this->assertInstanceOf('Hybrid\Table\Grid', $grid);
+		$this->assertInstanceOf('Orchestra\Support\Table\Grid', $grid);
 		$this->assertEquals(Orchestra\Table::of('diskus.topics'), $stub);
 	}
 }
