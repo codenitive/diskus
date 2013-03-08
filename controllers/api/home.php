@@ -1,6 +1,7 @@
 <?php
 
-use Orchestra\View;
+use Orchestra\Site, 
+	Orchestra\View;
 
 class Diskus_Api_Home_Controller extends Controller {
 	
@@ -19,7 +20,7 @@ class Diskus_Api_Home_Controller extends Controller {
 	 */
 	public function get_index()
 	{
-		View::share('_title_', 'Diskus');
+		Site::set('title', 'Diskus');
 		
 		return View::make('diskus::api.home');
 	}

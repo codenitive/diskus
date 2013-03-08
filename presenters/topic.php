@@ -21,7 +21,7 @@ class Topic {
 			$table->empty_message = __('orchestra::label.no-data');
 
 			// Add HTML attributes option for the table.
-			$table->attr('class', 'table table-bordered table-striped');
+			$table->attributes('class', 'table table-bordered table-striped');
 
 			// attach Model and set pagination option to true
 			$table->with($model, true);
@@ -54,7 +54,7 @@ class Topic {
 		{
 			$form->row($model);
 
-			$form->attr(array(
+			$form->attributes(array(
 				'action' => handles("orchestra::resources/diskus.topics/view/{$model->id}"),
 				'method' => 'POST',
 			));
@@ -68,7 +68,7 @@ class Topic {
 				$fieldset->control('textarea', 'content', function ($control)
 				{
 					$control->label('Content');
-					$control->attr(array(
+					$control->attributes(array(
 						'class' => 'span12 !span4', 
 						'role' => 'redactor',
 					));

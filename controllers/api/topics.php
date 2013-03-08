@@ -2,6 +2,7 @@
 
 use Diskus\Model\Topic,
 	Diskus\Presenter\Topic as TopicPresenter,
+	Orchestra\Site,
 	Orchestra\View;
 
 class Diskus_Api_Topics_Controller extends Controller {
@@ -28,7 +29,7 @@ class Diskus_Api_Topics_Controller extends Controller {
 			'table'    => $table,
 		);
 
-		View::share('_title_', __('diskus::title.topics.list'));
+		Site::set('title', __('diskus::title.topics.list'));
 
 		return View::make('diskus::api.topics.index', $data);
 	}
@@ -58,7 +59,7 @@ class Diskus_Api_Topics_Controller extends Controller {
 			'form'     => $form,
 		);
 
-		View::share('_title_', __("diskus::title.topics.{$type}"));
+		Site::set('title', __("diskus::title.topics.{$type}"));
 
 		return View::make('diskus::api.topics.edit', $data);
 	}

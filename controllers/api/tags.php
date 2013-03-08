@@ -3,6 +3,7 @@
 use Diskus\Model\Tag,
 	Diskus\Presenter\Tag as TagPresenter,
 	Orchestra\Messages,
+	Orchestra\Site,
 	Orchestra\View;
 
 class Diskus_Api_Tags_Controller extends Controller {
@@ -29,7 +30,7 @@ class Diskus_Api_Tags_Controller extends Controller {
 			'table'    => $table,
 		);
 
-		View::share('_title_', __('diskus::title.tags.list'));
+		Site::set('title', __('diskus::title.tags.list'));
 		
 		return View::make('diskus::api.tags.index', $data);
 	}
@@ -57,7 +58,7 @@ class Diskus_Api_Tags_Controller extends Controller {
 			'form'     => $form,
 		);
 
-		View::share('_title_', __("diskus::title.tags.{$type}"));
+		Site::set('title', __("diskus::title.tags.{$type}"));
 
 		return View::make('diskus::api.tags.edit', $data);
 	}

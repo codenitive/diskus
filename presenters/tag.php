@@ -21,7 +21,7 @@ class Tag {
 			$table->empty_message = __('orchestra::label.no-data');
 
 			// Add HTML attributes option for the table.
-			$table->attr('class', 'table table-bordered table-striped');
+			$table->attributes('class', 'table table-bordered table-striped');
 
 			// attach Model and set pagination option to true
 			$table->with($model, true);
@@ -46,7 +46,7 @@ class Tag {
 		{
 			$form->row($model);
 
-			$form->attr(array(
+			$form->attributes(array(
 				'action' => handles("orchestra::resources/diskus.tags/view/{$model->id}"),
 				'method' => 'POST',
 			));
@@ -59,7 +59,7 @@ class Tag {
 				$fieldset->control('input:text', 'slug', function($control)
 				{
 					$control->label(__('diskus::label.slug'));
-					$control->attr(array('class' => 'span3'));
+					$control->attributes(array('class' => 'span3'));
 				});
 			});
 		});
