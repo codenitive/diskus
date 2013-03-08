@@ -1,29 +1,30 @@
-<div class="navbar">
-	<div class="navbar-inner">
+@section('diskus::primary_menu')
+<ul class="nav">
+		<li class="{{ URI::is('*/resources/diskus.topics*') ? 'active' : '' }}">
+		{{ HTML::link(handles('orchestra::resources/diskus.topics'), 'Topics') }}
+	</li>
+	<li class="{{ URI::is('*/resources/diskus.tags*') ? 'active' : '' }}">
+		{{ HTML::link(handles('orchestra::resources/diskus.tags'), 'Tags') }}
+	</li>
+</ul>
+@endsection
 
-		<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target="#cellonav">
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button>
+@section('diskus::secondary_menu')
+<ul class="nav pull-right">
+	<li>
+		<a href="{{ handles('diskus') }}" target="_blank"><i class="icon-home"></i> Website</a>
+	</li>
+</ul>
+@endsection
 
-		{{ HTML::link(handles('orchestra::resources/diskus'), 'Diskus', array('class' => 'brand')) }}
+<?php
 
-		<div id="cellonav" class="collapse nav-collapse">
-		  	<ul class="nav">
-		  		<li class="{{ URI::is('*/resources/diskus.topics*') ? 'active' : '' }}">
-					{{ HTML::link(handles('orchestra::resources/diskus.topics'), 'Topics') }}
-				</li>
-				<li class="{{ URI::is('*/resources/diskus.tags*') ? 'active' : '' }}">
-					{{ HTML::link(handles('orchestra::resources/diskus.tags'), 'Tags') }}
-				</li>
-			</ul>
+$navbar = new Orchestra\Fluent(array(
+	'id'             => 'diskus',
+	'title'          => 'Diskus',
+	'url'            => handles('orchestra::resources/diskus'),
+	'primary_menu'   => Laravel\Section::yield('diskus::primary_menu'),
+	'secondary_menu' => Laravel\Section::yield('diskus::secondary_menu'),
+)); ?>
 
-			<ul class="nav pull-right">
-				<li>
-					<a href="{{ handles('diskus') }}" target="_blank"><i class="icon-home"></i> Website</a>
-				</li>
-			</ul>
-		</div>
-	</div>
-</div>
+{{ Orchestra\Decorator::navbar($navbar) }}
