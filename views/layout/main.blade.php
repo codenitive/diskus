@@ -25,7 +25,11 @@
 <body>
 	<div class="row">
 		<div class="large-12 columns">
-			<h2>{{ memorize('site.name') }}<h2>
+			<h1>
+				<a href="{{ handles('diskus') }}">
+					{{ memorize('site.name') }}
+				</a>
+			</h1>
 			<p>{{ memorize('site.description') }}</p>
 			<hr />
 		</div>

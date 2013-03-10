@@ -12,12 +12,44 @@
 					on {{ with(new DateTime($topic->created_at))->format('H:ma d M, Y') }}
 				</small>
 			</h4>
-			<hr>
 
 			<div>
 				{{ $topic->content }}
 			</div>
+
+			<ul class="inline-list meta">
+				<li><span class="radius secondary label">{{ count($topic->comment) }} Comments</span></li>
+				<li><span class="radius alert label">Not Answered</span></li>
+			</ul>
+			<hr>
 		</article>
+
+		<section class="comments">
+			@forelse ($topic->comment as $comment)
+
+			@empty
+
+			@endforelse
+
+			@if (Orchestra\Acl::make('diskus')->can('create topic'))
+			{{ Form::open(handles('diskus::comments/add'), 'POST') }}
+				{{ Form::token() }}
+				{{ Form::hidden('topic_id', $topic->id) }}
+				<h5>Add Comment</h5>
+				<div class="row">
+					<div class="large-12 columns">
+						{{ Form::textarea('comment', '', array('role' => 'redactor')) }}
+					</div>
+				</div>
+				<br>
+				<div class="row">
+					<div class="large-12 columns">
+						{{ Form::submit('Add Comment', array('class' => 'small radius button')) }}
+					</div>
+				</div>
+			{{ Form::close() }}
+			@endif
+		</section>
 		
 	</div>
 	<div class="small-3 columns">

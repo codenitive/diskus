@@ -59,4 +59,15 @@ class Topic extends Eloquent {
 	{
 		return $this->belongs_to(Config::get('auth.model'));
 	}
+
+	/**
+	 * Has many relationship with `diskus_comments` table.
+	 *
+	 * @access public
+	 * @return Diskus\Model\Comment
+	 */
+	public function comment()
+	{
+		return $this->has_many('Diskus\Model\Comment', 'topic_id');
+	}
 }

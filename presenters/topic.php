@@ -27,7 +27,7 @@ class Topic {
 			$table->with($model, true);
 
 			// Add columns.
-			$table->column(__('diskus::label.name'), 'name');
+			$table->column(__('diskus::label.title'), 'title');
 
 			$table->column('fullname', function ($column)
 			{

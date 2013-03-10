@@ -13,6 +13,19 @@ class Diskus_Home_Controller extends Controller {
 	public $restful = true;
 
 	/**
+	 * Add filter on __construct
+	 *
+	 * @access public
+	 * @return Response
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->filter('before', 'diskus::view-topic');
+	}
+
+	/**
 	 * Get landing page.
 	 *
 	 * @access public

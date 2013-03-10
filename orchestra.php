@@ -9,8 +9,9 @@
 Event::listen('orchestra.started: backend', function ()
 {
 	$diskus = Orchestra\Resources::make('diskus', array(
-		'name' => 'Diskus',
-		'uses' => 'diskus::api.home',
+		'name'    => 'Diskus',
+		'uses'    => 'diskus::api.home',
+		'visible' => false,
 	));
 
 	$diskus->topics = 'diskus::api.topics';

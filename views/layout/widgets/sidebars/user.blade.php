@@ -7,4 +7,10 @@
 	</a>
 	@endif
 </div>
+@else
+<div class="panel radius">
+	<a href="{{ handles('orchestra::register') }}" class="small expand button radius">
+		Add Topic
+	</a>
+</div>
 @endif

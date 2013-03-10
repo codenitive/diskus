@@ -4,6 +4,7 @@
 <br>
 <div class="row">
 	<div class="large-9 columns">
+		<section class="topics">
 		@forelse ($topics->results as $topic)
 			<?php $slug = Str::slug($topic->title); ?>
 			<article class="topic">
@@ -11,11 +12,15 @@
 					<a href="{{ handles("diskus::topic/{$topic->id}/{$slug}") }}">
 						{{ $topic->title }}
 					</a>
-					<small>
+					<small class="meta">
 						Created by {{ $topic->user->fullname }} 
 						on {{ with(new DateTime($topic->created_at))->format('H:ma d M, Y') }}
 					</small>
 				</h4>
+				<ul class="inline-list meta">
+					<li><span class="radius secondary label">{{ count($topic->comment) }} Comments</span></li>
+					<li><span class="radius alert label">Not Answered</span></li>
+				</ul>
 			</article>
 			<hr>
 		@empty
@@ -26,6 +31,7 @@
 				</p>
 			</article>
 		@endforelse
+		</section>
 	</div>
 	<div class="small-3 columns">
 		@include(locate('diskus::layout.widgets.sidebars.user'))
