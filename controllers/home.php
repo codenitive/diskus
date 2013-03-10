@@ -1,6 +1,7 @@
 <?php
 
-use Orchestra\View;
+use Orchestra\Site,
+	Orchestra\View;
 
 class Diskus_Home_Controller extends Controller {
 	
@@ -19,6 +20,8 @@ class Diskus_Home_Controller extends Controller {
 	 */
 	public function get_index()
 	{
-		return View::make('diskus::home.index');
+		$topics = Diskus\Model\Topic::recent_active()->paginate(30);
+		
+		return View::make('diskus::home.index', compact('topics'));
 	}
 }
