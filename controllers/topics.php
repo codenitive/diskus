@@ -24,6 +24,7 @@ class Diskus_Topics_Controller extends Controller {
 		parent::__construct();
 
 		$this->filter('before', 'diskus::create-topic')->only('add');
+		$this->filter('before', 'diskus::view-topic')->only('view');
 		$this->filter('before', 'orchestra::csrf')->only('add')->on('post');
 	}
 
@@ -35,7 +36,7 @@ class Diskus_Topics_Controller extends Controller {
 	 */
 	public function get_view($id, $slug = null)
 	{
-		$topic = Topic::find($id);
+		$topic = Topic::with('comment')->find($id);
 
 		if (is_null($topic)) return Response::error('404');
 

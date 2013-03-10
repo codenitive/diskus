@@ -10,7 +10,7 @@
 @else
 <div class="panel radius">
 	<a href="{{ handles('orchestra::register') }}" class="small expand button radius">
-		Add Topic
+		{{ __('orchestra::title.register') }}
 	</a>
 </div>
 @endif

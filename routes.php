@@ -25,8 +25,18 @@ Route::any('(:bundle)/topic/(:num)/(:any)', array(
 
 Route::controller(array(
 	'diskus::home',
+	'diskus::comments',
 	'diskus::topics',
 ));
+
+/*
+|--------------------------------------------------------------------------
+| Diskus Filters
+|--------------------------------------------------------------------------
+|
+| Define basic filters for Diskus.
+|
+*/
 
 Route::filter('diskus::view-topic', function()
 {

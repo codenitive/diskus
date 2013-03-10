@@ -26,9 +26,16 @@
 
 		<section class="comments">
 			@forelse ($topic->comment as $comment)
-
+				<article id="comment-{{ $comment->id }}" class="comment">
+					<h6 title="comment-{{ $comment->id }}">{{ $comment->user->fullname }}</h6>
+					<div class="content">
+						{{ $comment->content }}
+					</div>
+					<hr>
+				</article>
 			@empty
-
+				<h6>No comment at the moment.</h6>
+				<hr>
 			@endforelse
 
 			@if (Orchestra\Acl::make('diskus')->can('create topic'))
@@ -38,7 +45,7 @@
 				<h5>Add Comment</h5>
 				<div class="row">
 					<div class="large-12 columns">
-						{{ Form::textarea('comment', '', array('role' => 'redactor')) }}
+						{{ Form::textarea('content', '', array('role' => 'redactor')) }}
 					</div>
 				</div>
 				<br>

@@ -32,6 +32,8 @@
 			</article>
 		@endforelse
 		</section>
+
+		{{ $topics->links() }}
 	</div>
 	<div class="small-3 columns">
 		@include(locate('diskus::layout.widgets.sidebars.user'))

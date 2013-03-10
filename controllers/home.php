@@ -33,7 +33,7 @@ class Diskus_Home_Controller extends Controller {
 	 */
 	public function get_index()
 	{
-		$topics = Diskus\Model\Topic::recent_active()->paginate(30);
+		$topics = Diskus\Model\Topic::recent_active()->paginate(10);
 		
 		return View::make('diskus::home.index', compact('topics'));
 	}
