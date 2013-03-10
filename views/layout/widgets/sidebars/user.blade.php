@@ -1,5 +1,10 @@
 @if (Auth::check())
 <div class="panel radius">
-	<h6>Welcome {{ Auth::user()->fullname }}</h6>
+	<h6>{{ Auth::user()->fullname }}</h6>
+	@if (Orchestra\Acl::make('diskus')->can('create topic'))
+	<a href="{{ handles('diskus::topics/add') }}" class="small expand button radius">
+		Add Topic
+	</a>
+	@endif
 </div>
 @endif

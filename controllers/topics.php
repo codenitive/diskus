@@ -1,6 +1,7 @@
 <?php
 
-use Orchestra\Site,
+use Diskus\Model\Topic,
+	Orchestra\Site,
 	Orchestra\View;
 
 class Diskus_Topics_Controller extends Controller {
@@ -27,6 +28,21 @@ class Diskus_Topics_Controller extends Controller {
 	}
 
 	/**
+	 * View a topic
+	 *
+	 * @access public
+	 * @return Response
+	 */
+	public function get_view($id, $slug = null)
+	{
+		$topic = Topic::find($id);
+
+		if (is_null($topic)) return Response::error('404');
+
+		return View::make('diskus::topics.view', compact('topic'));
+	}
+
+	/**
 	 * GET Add Topic page
 	 *
 	 * @access public
@@ -45,7 +61,7 @@ class Diskus_Topics_Controller extends Controller {
 	 */
 	public function post_add()
 	{
-		$input = Input::all();
+		$input = Input::only(array('title', 'content'));
 		$rules = array(
 			'title'   => array('required'),
 			'content' => array('required'),
@@ -59,5 +75,16 @@ class Diskus_Topics_Controller extends Controller {
 					->with_input()
 					->with_errors($val);
 		}
+
+		$topic = new Topic(array(
+			'user_id' => Auth::user()->id,
+			'answer'  => Topic::NOT_ANSWERED,
+			'status'  => Topic::STATUS_PUBLISH,
+		));
+		$topic->fill($input);
+
+		$topic->save();
+
+		return Redirect::to(handles('diskus::home'));
 	}
 }

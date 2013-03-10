@@ -10,10 +10,10 @@
 
 	$asset = Asset::container('diskus.frontend');
 
-	$asset->style('foundation', 'bundles/orchestra/vendor/foundation/css/foundation.min.css');
-	$asset->script('foundation', 'bundles/orchestra/vendor/foundation/js/foundation.min.js');
-
 	$asset->script('jquery', 'bundles/orchestra/js/jquery.min.js');
+	$asset->style('foundation', 'bundles/orchestra/vendor/foundation/css/foundation.min.css');
+	$asset->script('foundation', 'bundles/orchestra/vendor/foundation/js/foundation.min.js', array('jquery'));
+
 	$asset->script('redactor', 'bundles/orchestra/vendor/redactor/redactor.min.js', array('jquery'));
 	$asset->script('diskus', 'bundles/diskus/js/diskus.min.js', array('redactor'));
 	$asset->style('redactor', 'bundles/orchestra/vendor/redactor/css/redactor.css'); ?>
@@ -33,5 +33,10 @@
 
 	@yield('content')
 
+	<script>
+	jQuery(function($) {
+		$(document).foundation();
+	});
+	</script>
 </body>
 </html>

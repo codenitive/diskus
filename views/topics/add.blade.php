@@ -22,7 +22,6 @@
 				<div class="large-12 columns {{ $errors->has('content') ? 'error' : '' }}">
 					{{ Form::label('content', 'Content') }}
 					{{ Form::textarea('content', Input::old('title'), array('role' => 'redactor')) }}
-					{{ $errors->first('content', $error_message) }}
 				</div>
 			</div>
 			<br>
