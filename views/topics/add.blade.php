@@ -30,7 +30,7 @@
 			</div>
 		{{ Form::close() }}
 	</div>
-	<div class="small-3 columns">
+	<div class="large-3 columns">
 		@include(locate('diskus::layout.widgets.sidebars.user'))
 		@placeholder('diskus.sidebar')
 	</div>
