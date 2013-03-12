@@ -79,7 +79,7 @@ class Diskus_Api_Tags_Controller extends Controller {
 			'slug' => array('required', "unique:diskus_tags,slug,{$id}"),
 		);
 
-		$msg = new Messages;
+		$msg = Messages::make();
 		$val = Validator::make($input, $rules);
 
 		if ($val->fails())
